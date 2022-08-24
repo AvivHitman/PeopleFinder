@@ -5,7 +5,7 @@ export const useUsersList = () => {
   const [countriesToFilter, setCountriesToFilter] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [searchValue, setSearchValue] = useState();
-  const natFilterQueryParam = `&nat=${countriesToFilter.toString()}`;
+  const natFilterQueryParam = countriesToFilter.toString();
   const { fetchedUsers, isLoading, hasMore } = usePeopleFetch(pageNumber, natFilterQueryParam, searchValue);
   const observer = useRef();
 

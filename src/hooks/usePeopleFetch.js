@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FETCH_USERS_URL } from "../constant";
 
 export const usePeopleFetch = (pageNumber, natFilterQueryParam) => {
   const [fetchedUsers, setFetchedUsers] = useState([]);
@@ -21,7 +20,7 @@ export const usePeopleFetch = (pageNumber, natFilterQueryParam) => {
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(FETCH_USERS_URL  + natFilterQueryParam);
+      const response = await axios.get(`https://randomuser.me/api/?results=25&page=${pageNumber}&nat=${natFilterQueryParam}`);
       setFetchedUsers(prevUsers => {
          return [...prevUsers, ...response.data.results];
       })

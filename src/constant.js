@@ -34,4 +34,3 @@ export const PATHS = [
 
 export const STORAGE_KEY_FAVORITE_USERS = "favoritesUsers";
 
-export const FETCH_USERS_URL = `https://randomuser.me/api/?results=25`;
