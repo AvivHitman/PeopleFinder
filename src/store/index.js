@@ -23,6 +23,8 @@ const favoriteUsersReducer = (state = usersFromLocalStorage, action) => {
     default:
       return state;
   }
+  console.log(state)
+
 }
 const store = configureStore({reducer : favoriteUsersReducer});
 

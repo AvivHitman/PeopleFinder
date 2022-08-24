@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 const User = ({ index, usersLength, user, lastUserElementRef}) => {
   const [isHovered, setIsHovered] = useState(false);
   const favoritesUsers = useSelector((state) => state);
-  console.log(favoritesUsers)
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -20,7 +19,7 @@ const User = ({ index, usersLength, user, lastUserElementRef}) => {
   };
 
   const handleFavoriteClicked = (user) => {
-    dispatch({ type: favoritesUsers.includes(user) ? "REMOVE_FAV_USERS" : "SAVE_FAV_USERS", payload: user });
+    dispatch({ type: favoritesUsers?.includes(user) ? "REMOVE_FAV_USERS" : "SAVE_FAV_USERS", payload: user });
   };
 
   return (
