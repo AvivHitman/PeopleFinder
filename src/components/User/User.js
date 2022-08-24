@@ -41,7 +41,7 @@ const User = ({ index, usersLength, user, lastUserElementRef}) => {
           {user.location.city} {user.location.country}
         </Text>
       </S.UserInfo>
-      <S.IconButtonWrapper isVisible={isHovered || favoritesUsers.includes(user)}
+      <S.IconButtonWrapper isVisible={isHovered}
                            onClick={() => handleFavoriteClicked(user)}>
         <IconButton>
           <FavoriteIcon color="error" />
