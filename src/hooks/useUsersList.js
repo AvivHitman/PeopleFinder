@@ -23,8 +23,8 @@ export const useUsersList = () => {
   }, [isLoading, hasMore]);
 
   const getUsersBySearchValue = (users, searchValue) => {
-    return searchValue ? users.filter((user) => user.name.first.toLowerCase().includes(searchValue) ||
-      user.name.last.toLowerCase().includes(searchValue)) : users;
+    return searchValue ? users.filter((user) => user.name.first.toLowerCase().includes(searchValue.toLowerCase()) ||
+      user.name.last.toLowerCase().includes(searchValue.toLowerCase())) : users;
   };
 
   const handleCheckBoxClicked = (nationality, isChecked) => {
