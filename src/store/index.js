@@ -3,7 +3,7 @@ import { getPersistentUsersData, setPersistentUsersData } from "../utils";
 
 const usersFromLocalStorage = getPersistentUsersData();
 
-const favoriteUsersReducer = (state = usersFromLocalStorage, action) => {
+const favoriteUsersReducer = (state = usersFromLocalStorage || [], action) => {
   console.log(state)
   switch (action.type) {
     case 'REMOVE_FAV_USERS':
