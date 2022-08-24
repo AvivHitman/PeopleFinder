@@ -19,7 +19,7 @@ const User = ({ index, usersLength, user, lastUserElementRef}) => {
   };
 
   const handleFavoriteClicked = (user) => {
-    dispatch({ type: favoritesUsers?.includes(user) ? "REMOVE_FAV_USERS" : "SAVE_FAV_USERS", payload: user });
+    dispatch({ type: favoritesUsers.includes(user) ? "REMOVE_FAV_USERS" : "SAVE_FAV_USERS", payload: user });
   };
 
   return (
@@ -41,7 +41,7 @@ const User = ({ index, usersLength, user, lastUserElementRef}) => {
           {user.location.city} {user.location.country}
         </Text>
       </S.UserInfo>
-      <S.IconButtonWrapper isVisible={isHovered}
+      <S.IconButtonWrapper isVisible={isHovered || favoritesUsers.includes(user)}
                            onClick={() => handleFavoriteClicked(user)}>
         <IconButton>
           <FavoriteIcon color="error" />
