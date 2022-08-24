@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { configureStore } from '@reduxjs/toolkit'
 import { getPersistentUsersData, setPersistentUsersData } from "../utils";
 
 const usersFromLocalStorage = getPersistentUsersData();
@@ -24,6 +24,6 @@ const favoriteUsersReducer = (state = usersFromLocalStorage, action) => {
       return state;
   }
 }
-const store = createStore(favoriteUsersReducer);
+const store = configureStore({reducer : favoriteUsersReducer});
 
 export default store;
