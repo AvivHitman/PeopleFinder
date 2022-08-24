@@ -20,14 +20,6 @@ export const SpinnerWrapper = styled.div`
   justify-content: center;
 `;
 
-export const Filters = styled.div`
-  display: flex;
-  justify-content: center;
-  & > * {
-    margin-inline-end: 8px;
-  }
-`;
-
 export const EmptyListText = styled.p`
   text-align: center;
   font-size: 20px;

@@ -1,11 +1,10 @@
 import React from "react";
 import Spinner from "components/Spinner";
-import CheckBox from "components/CheckBox";
 import * as S from "./style";
-import { COUNTRIES } from "../../constant";
 import User from "../User";
 import { useUsersList } from "../../hooks";
 import Search from "../Search";
+import CountriesCheckBox from "../CountriesCheckBox";
 
 const UserList = () => {
   const {
@@ -21,14 +20,7 @@ const UserList = () => {
   return (
     <S.UserList>
       <Search label="Search by name" onChange={handleSearch} />
-      <S.Filters>
-        {COUNTRIES.map(({ nationality, country, index }) => {
-          const isChecked = countriesToFilter.includes(nationality);
-          return <CheckBox key={index} value={nationality} label={country} checked={isChecked} onChange={() => {
-            handleCheckBoxClicked(nationality, isChecked);
-          }} />;
-        })}
-      </S.Filters>
+      <CountriesCheckBox countriesToFilter={countriesToFilter} onChange={handleCheckBoxClicked} />
       <S.List>
         {usersToDisplay.length === 0 && !isLoading ? <S.EmptyListText> No Matched Users Found </S.EmptyListText> :
           (usersToDisplay.map((user, index) => {
