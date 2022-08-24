@@ -1,59 +1,41 @@
-import React, { useEffect, useState } from "react";
-import Text from "components/Text";
+import React from "react";
 import Spinner from "components/Spinner";
 import CheckBox from "components/CheckBox";
-import IconButton from "@material-ui/core/IconButton";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
+import { COUNTRIES } from "../../constant";
+import User from "../User";
+import { useUsersList } from "../../hooks";
+import Search from "../Search";
 
-const UserList = ({ users, isLoading }) => {
-  const [hoveredUserId, setHoveredUserId] = useState();
-
-  const handleMouseEnter = (index) => {
-    setHoveredUserId(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredUserId();
-  };
+const UserList = () => {
+  const {
+    usersToDisplay,
+    lastUserElementRef,
+    countriesToFilter,
+    isLoading,
+    fetchedUsers,
+    handleCheckBoxClicked,
+    handleSearch
+  } = useUsersList();
 
   return (
     <S.UserList>
+      <Search label="Search by name" onChange={handleSearch} />
       <S.Filters>
-        <CheckBox value="BR" label="Brazil" />
-        <CheckBox value="AU" label="Australia" />
-        <CheckBox value="CA" label="Canada" />
-        <CheckBox value="DE" label="Germany" />
+        {COUNTRIES.map(({ nationality, country, index }) => {
+          const isChecked = countriesToFilter.includes(nationality);
+          return <CheckBox key={index} value={nationality} label={country} checked={isChecked} onChange={() => {
+            handleCheckBoxClicked(nationality, isChecked);
+          }} />;
+        })}
       </S.Filters>
       <S.List>
-        {users.map((user, index) => {
-          return (
-            <S.User
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <S.UserPicture src={user?.picture.large} alt="" />
-              <S.UserInfo>
-                <Text size="22px" bold>
-                  {user?.name.title} {user?.name.first} {user?.name.last}
-                </Text>
-                <Text size="14px">{user?.email}</Text>
-                <Text size="14px">
-                  {user?.location.street.number} {user?.location.street.name}
-                </Text>
-                <Text size="14px">
-                  {user?.location.city} {user?.location.country}
-                </Text>
-              </S.UserInfo>
-              <S.IconButtonWrapper isVisible={index === hoveredUserId}>
-                <IconButton>
-                  <FavoriteIcon color="error" />
-                </IconButton>
-              </S.IconButtonWrapper>
-            </S.User>
-          );
-        })}
+        {usersToDisplay.length === 0 && !isLoading ? <S.EmptyListText> No Matched Users Found </S.EmptyListText> :
+          (usersToDisplay.map((user, index) => {
+            return (
+              <User key={index} index={index} usersLength={fetchedUsers.length} user={user}
+                    lastUserElementRef={lastUserElementRef} />);
+          }))}
         {isLoading && (
           <S.SpinnerWrapper>
             <Spinner color="primary" size="45px" thickness={6} variant="indeterminate" />

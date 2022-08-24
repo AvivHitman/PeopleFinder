@@ -1,20 +1,36 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FETCH_USERS_URL } from "../constant";
 
-export const usePeopleFetch = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+export const usePeopleFetch = (pageNumber, natFilterQueryParam) => {
+  const [fetchedUsers, setFetchedUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(false)
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  useEffect( () => {
+    fetchUsers()
+  }, [pageNumber]);
 
-  async function fetchUsers() {
+  useEffect( () => {
+    setFetchedUsers([]);
+    fetchUsers()
+  }, [natFilterQueryParam]);
+
+
+
+  const fetchUsers = async () => {
     setIsLoading(true);
-    const response = await axios.get(`https://randomuser.me/api/?results=25&page=1`);
-    setIsLoading(false);
-    setUsers(response.data.results);
-  }
+    try {
+      const response = await axios.get(FETCH_USERS_URL  + natFilterQueryParam);
+      setFetchedUsers(prevUsers => {
+         return [...prevUsers, ...response.data.results];
+      })
+      setHasMore(response.data.results.length > 0)
+      setIsLoading(false)
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  return { users, isLoading, fetchUsers };
+  return { fetchedUsers, isLoading, hasMore };
 };

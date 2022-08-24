@@ -1,9 +1,9 @@
 import React from "react";
 import Text from "components/Text";
-import UserList from "components/UserList";
 import * as S from "../style";
+import FavoritesList from "../../components/UserList/FavoritesList";
 
-const Home = () => (
+const Favorites = () => (
     <S.UsersPage>
       <S.Content>
         <S.Header>
@@ -11,9 +11,9 @@ const Home = () => (
             PplFinder
           </Text>
         </S.Header>
-          <UserList />
+        <FavoritesList  />
       </S.Content>
     </S.UsersPage>
   );
 
-export default Home;
+export default Favorites;
