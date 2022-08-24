@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { getPersistentUsersData, setPersistentUsersData } from "../utils";
+import { getPersistentUsersData, setPersistentUsersData } from "./utils";
 
 const usersFromLocalStorage = getPersistentUsersData();
 
