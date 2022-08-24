@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/PpFinder-aviv/static/js/main.0f0a8a83.chunk.js",
-    "main.js.map": "/PpFinder-aviv/static/js/main.0f0a8a83.chunk.js.map",
+    "main.js": "/PpFinder-aviv/static/js/main.534cce2a.chunk.js",
+    "main.js.map": "/PpFinder-aviv/static/js/main.534cce2a.chunk.js.map",
     "runtime-main.js": "/PpFinder-aviv/static/js/runtime-main.c79b414e.js",
     "runtime-main.js.map": "/PpFinder-aviv/static/js/runtime-main.c79b414e.js.map",
-    "static/js/2.235e08ad.chunk.js": "/PpFinder-aviv/static/js/2.235e08ad.chunk.js",
-    "static/js/2.235e08ad.chunk.js.map": "/PpFinder-aviv/static/js/2.235e08ad.chunk.js.map",
+    "static/js/2.eb48e0ce.chunk.js": "/PpFinder-aviv/static/js/2.eb48e0ce.chunk.js",
+    "static/js/2.eb48e0ce.chunk.js.map": "/PpFinder-aviv/static/js/2.eb48e0ce.chunk.js.map",
     "index.html": "/PpFinder-aviv/index.html",
-    "static/js/2.235e08ad.chunk.js.LICENSE.txt": "/PpFinder-aviv/static/js/2.235e08ad.chunk.js.LICENSE.txt"
+    "static/js/2.eb48e0ce.chunk.js.LICENSE.txt": "/PpFinder-aviv/static/js/2.eb48e0ce.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c79b414e.js",
-    "static/js/2.235e08ad.chunk.js",
-    "static/js/main.0f0a8a83.chunk.js"
+    "static/js/2.eb48e0ce.chunk.js",
+    "static/js/main.534cce2a.chunk.js"
   ]
 }
