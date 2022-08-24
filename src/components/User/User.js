@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const User = ({ index, usersLength, user, lastUserElementRef}) => {
   const [isHovered, setIsHovered] = useState(false);
   const favoritesUsers = useSelector((state) => state);
+  console.log(favoritesUsers)
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
