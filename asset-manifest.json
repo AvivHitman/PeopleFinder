@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/PpFinder-aviv/static/js/main.b541b36b.chunk.js",
+    "main.js.map": "/PpFinder-aviv/static/js/main.b541b36b.chunk.js.map",
+    "runtime-main.js": "/PpFinder-aviv/static/js/runtime-main.c79b414e.js",
+    "runtime-main.js.map": "/PpFinder-aviv/static/js/runtime-main.c79b414e.js.map",
+    "static/js/2.d8e330ee.chunk.js": "/PpFinder-aviv/static/js/2.d8e330ee.chunk.js",
+    "static/js/2.d8e330ee.chunk.js.map": "/PpFinder-aviv/static/js/2.d8e330ee.chunk.js.map",
+    "index.html": "/PpFinder-aviv/index.html",
+    "static/js/2.d8e330ee.chunk.js.LICENSE.txt": "/PpFinder-aviv/static/js/2.d8e330ee.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c79b414e.js",
+    "static/js/2.d8e330ee.chunk.js",
+    "static/js/main.b541b36b.chunk.js"
+  ]
+}
